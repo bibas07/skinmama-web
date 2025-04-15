@@ -28,8 +28,8 @@ RUN adduser --system --uid 1001 nextjs
 # Copy build output - Adjust paths based on project structure
 COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# COPY --from=builder /app/.next/standalone ./
+# COPY --from=builder /app/.next/static ./.next/static
 
 USER nextjs
 CMD ["node", "server.js"]
