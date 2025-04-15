@@ -1,0 +1,65 @@
+name: Skin mama Web
+
+on:
+  push:
+    branches:
+      - development
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            .turbo
+            node_modules
+          key: ${{ runner.os }}-deps-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-deps-
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+        working-directory: app
+
+      - name: Lint Code
+        run: yarn lint
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and Export Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          load: true
+          tags: tools-web:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Verify Build Output
+        run: |
+          CONTAINER_ID=$(docker create tools-web:latest)
+          docker cp $CONTAINER_ID:/app ./html
+          docker rm -f $CONTAINER_ID
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: ./html
+          retention-days: 7
