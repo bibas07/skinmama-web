@@ -127,7 +127,6 @@ export function NavigationMenuSkinMama() {
               </NavigationMenuItem>
             </div>
 
-            {/* Download App button - still inside NavigationMenu */}
             <div className="ml-auto">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
