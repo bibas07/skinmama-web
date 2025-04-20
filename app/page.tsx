@@ -1,10 +1,9 @@
-import { Button } from '@skinmama/components/ui/button';
+import HeroSection from './src/components/HeroSection/heroSection.compoent';
 
 export default function Home() {
   return (
     <div>
-      This is homepage <br />
-      <Button>Button</Button>
+      <HeroSection />
     </div>
   );
 }
