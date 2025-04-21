@@ -12,8 +12,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@skinmama/components/ui/card';
-import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
-import debounce from 'lodash.debounce'
+import debounce from 'lodash.debounce';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 type Step = {
   label: string;
@@ -94,21 +100,30 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
     height: typeof window !== 'undefined' ? window.innerHeight : 768,
   });
   const [isSSR, setIsSSR] = useState(true);
-  
+
   // Refs
   const containerRef = useRef<HTMLDivElement>(null);
   const progressIntervalRef = useRef<number | null>(null);
   const requestAnimationRef = useRef<number | null>(null);
-  
+
   // Detect SSR vs client rendering
   useEffect(() => {
     setIsSSR(false);
   }, []);
 
   // Viewport and device detection
-  const isMobile = useMemo(() => viewportSize.width < 768, [viewportSize.width]);
-  const isTablet = useMemo(() => viewportSize.width >= 768 && viewportSize.width < 1024, [viewportSize.width]);
-  const isLargeScreen = useMemo(() => viewportSize.width >= 1440, [viewportSize.width]);
+  const isMobile = useMemo(
+    () => viewportSize.width < 768,
+    [viewportSize.width]
+  );
+  const isTablet = useMemo(
+    () => viewportSize.width >= 768 && viewportSize.width < 1024,
+    [viewportSize.width]
+  );
+  const isLargeScreen = useMemo(
+    () => viewportSize.width >= 1440,
+    [viewportSize.width]
+  );
 
   // Responsive sizing
   const getResponsiveSize = useCallback(() => {
@@ -121,11 +136,11 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
   const thresholds = useMemo(() => {
     const thresholds = [];
     const stepSize = 100 / steps.length;
-    
+
     for (let i = 0; i < steps.length; i++) {
       thresholds.push(i * stepSize);
     }
-    
+
     thresholds.push(100);
     return thresholds;
   }, [steps.length]);
@@ -138,10 +153,12 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
           width: window.innerWidth,
           height: window.innerHeight,
         });
-  
+
         if (containerRef.current) {
           const containerWidth = containerRef.current.clientWidth;
-          setContainerSize(Math.min(containerWidth - (isMobile ? 24 : 40), getResponsiveSize()));
+          setContainerSize(
+            Math.min(containerWidth - (isMobile ? 24 : 40), getResponsiveSize())
+          );
         }
       }
     }, 150),
@@ -153,7 +170,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
       handleResize();
-      
+
       return () => {
         window.removeEventListener('resize', handleResize);
         handleResize.cancel();
@@ -174,7 +191,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
       if (!isPaused) {
         const currentTime = Date.now();
         const elapsedTime = currentTime - startTime;
-        
+
         if (elapsedTime >= intervalDuration) {
           setProgress((prev) => {
             const increment = 100 / (autoRotateInterval / intervalDuration);
@@ -183,7 +200,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
           });
         }
       }
-      
+
       requestAnimationRef.current = requestAnimationFrame(updateProgress);
     };
 
@@ -221,15 +238,18 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
     const baseRadius = center - (isMobile ? 60 : 80);
     return Math.max(baseRadius, 90); // Ensure minimum radius for small screens
   }, [center, isMobile]);
-  
+
   const anglePerStep = (2 * Math.PI) / steps.length;
   const circleCircumference = 2 * Math.PI * radius;
 
   // Determine if a step is completed based on current progress
-  const isStepCompleted = useCallback((index: number) => {
-    const stepProgress = (progress / 100) * steps.length;
-    return index < Math.floor(stepProgress);
-  }, [progress, steps.length]);
+  const isStepCompleted = useCallback(
+    (index: number) => {
+      const stepProgress = (progress / 100) * steps.length;
+      return index < Math.floor(stepProgress);
+    },
+    [progress, steps.length]
+  );
 
   // Accessibility helper for keyboard users
   const handleKeyPress = (event: React.KeyboardEvent, index: number) => {
@@ -240,23 +260,31 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
   };
 
   // Function to go to a specific step
-  const goToStep = useCallback((index: number) => {
-    setActiveStep(index);
-    setDisplayedStep(index);
-    // Calculate appropriate progress for the step
-    const newProgress = (index / steps.length) * 100;
-    setProgress(newProgress);
-  }, [steps.length]);
+  const goToStep = useCallback(
+    (index: number) => {
+      setActiveStep(index);
+      setDisplayedStep(index);
+      // Calculate appropriate progress for the step
+      const newProgress = (index / steps.length) * 100;
+      setProgress(newProgress);
+    },
+    [steps.length]
+  );
 
   const renderCircularStepper = () => {
     // Dynamic font sizing based on container size
-    const iconFontSize = containerSize < 400 ? 16 : containerSize < 500 ? 20 : 24;
+    const iconFontSize =
+      containerSize < 400 ? 16 : containerSize < 500 ? 20 : 24;
     const labelFontSize = containerSize < 400 ? 10 : 12;
     const circleSizeActive = containerSize < 400 ? 45 : 60;
     const circleSizeInactive = containerSize < 400 ? 40 : 50;
-    
+
     return (
-      <div className="relative w-full flex justify-center" role="region" aria-label="SDLC Process Stepper">
+      <div
+        className="relative w-full flex justify-center"
+        role="region"
+        aria-label="SDLC Process Stepper"
+      >
         <svg
           width={containerSize}
           height={containerSize}
@@ -266,8 +294,10 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
           onMouseLeave={() => pauseOnHover && setIsPaused(false)}
         >
           <title id="sdlc-cycle-title">Software Development Life Cycle</title>
-          <desc>Interactive visualization of the software development process</desc>
-          
+          <desc>
+            Interactive visualization of the software development process
+          </desc>
+
           {/* Background circle */}
           <circle
             cx={center}
@@ -319,7 +349,9 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
                 onKeyDown={(e) => handleKeyPress(e, index)}
                 tabIndex={0}
                 role="button"
-                aria-label={`${step.ariaLabel || step.label}${completed ? ' (completed)' : ''}${isActive ? ' (current)' : ''}`}
+                aria-label={`${step.ariaLabel || step.label}${
+                  completed ? ' (completed)' : ''
+                }${isActive ? ' (current)' : ''}`}
                 aria-current={isActive ? 'step' : undefined}
                 className="cursor-pointer hover:opacity-90 transition-all duration-300 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
               >
@@ -390,7 +422,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
               strokeWidth={2}
               className="drop-shadow-sm"
             />
-            
+
             <text
               x={center}
               y={center}
@@ -405,8 +437,6 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
             >
               {progress.toFixed(0)}%
             </text>
-
-            
           </g>
         </svg>
       </div>
@@ -415,12 +445,18 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
 
   const renderVerticalTimeline = () => {
     return (
-      <div 
-        className="flex flex-col w-full space-y-6 px-2 pb-4" 
-        role="region" 
+      <div
+        className="flex flex-col w-full space-y-6 px-2 pb-4"
+        role="region"
         aria-label="SDLC Process Timeline"
       >
-        <div className="w-full h-4 rounded-full overflow-hidden bg-gray-200" role="progressbar" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
+        <div
+          className="w-full h-4 rounded-full overflow-hidden bg-gray-200"
+          role="progressbar"
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
           <div
             className="h-full bg-blue-500 transition-all duration-100 ease-linear rounded-full"
             style={{ width: `${progress}%` }}
@@ -446,15 +482,18 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
               onKeyDown={(e) => handleKeyPress(e, index)}
               tabIndex={0}
               role="button"
-              aria-label={`${step.ariaLabel || step.label}${completed ? ' (completed)' : ''}${isActive ? ' (current)' : ''}`}
+              aria-label={`${step.ariaLabel || step.label}${
+                completed ? ' (completed)' : ''
+              }${isActive ? ' (current)' : ''}`}
               aria-current={isActive ? 'step' : undefined}
             >
               {index < steps.length - 1 && (
                 <div
                   className="absolute h-full w-2 md:w-3 left-6 md:left-8 top-16 -z-10 rounded-full"
                   style={{
-                    backgroundColor:
-                      isStepCompleted(index) ? completedColor : '#e5e7eb',
+                    backgroundColor: isStepCompleted(index)
+                      ? completedColor
+                      : '#e5e7eb',
                     marginLeft: '0.3rem',
                   }}
                   aria-hidden="true"
@@ -463,12 +502,18 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
 
               <div
                 className={`flex-shrink-0 rounded-full flex flex-col items-center justify-center shadow-md transition-all duration-300 p-2
-                           ${isActive ? 'w-16 h-16 md:w-20 md:h-20' : 'w-14 h-14 md:w-16 md:h-16'}`}
+                           ${
+                             isActive
+                               ? 'w-16 h-16 md:w-20 md:h-20'
+                               : 'w-14 h-14 md:w-16 md:h-16'
+                           }`}
                 style={{ backgroundColor: stepColor }}
                 aria-hidden="true"
               >
                 {completed && !isActive ? (
-                  <span className="text-white text-lg md:text-xl font-bold">✓</span>
+                  <span className="text-white text-lg md:text-xl font-bold">
+                    ✓
+                  </span>
                 ) : (
                   <span
                     className={`text-white ${
@@ -494,19 +539,28 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
               >
                 <h3
                   className={`font-bold ${
-                    isActive ? 'text-lg md:text-xl text-blue-800' : 'text-base md:text-lg text-gray-800'
+                    isActive
+                      ? 'text-lg md:text-xl text-blue-800'
+                      : 'text-base md:text-lg text-gray-800'
                   } flex items-center`}
                 >
                   {step.label}
                   {completed && !isActive && (
-                    <span className="ml-2 text-green-500" aria-label="Completed">✓</span>
+                    <span
+                      className="ml-2 text-green-500"
+                      aria-label="Completed"
+                    >
+                      ✓
+                    </span>
                   )}
                 </h3>
                 <p className="text-sm md:text-base text-gray-600 mt-1 md:mt-2">
                   {step.description}
                 </p>
                 {isActive && (
-                  <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">{step.longDescription}</p>
+                  <p className="mt-2 md:mt-3 text-sm md:text-base text-gray-700">
+                    {step.longDescription}
+                  </p>
                 )}
                 {isActive && (
                   <Badge className="mt-2 md:mt-3">{`Stage ${index + 1} of ${
@@ -523,7 +577,9 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
 
   // Don't render until client-side hydration is complete
   if (isSSR) {
-    return <div className="w-full h-56 bg-gray-100 animate-pulse rounded-xl"></div>;
+    return (
+      <div className="w-full h-56 bg-gray-100 animate-pulse rounded-xl"></div>
+    );
   }
 
   return (
@@ -551,15 +607,15 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
                     <span aria-hidden="true">{steps[displayedStep].icon}</span>
                     <span>{steps[displayedStep].label}</span>
                     {isStepCompleted(displayedStep) && (
-                      <span className="text-green-500" aria-label="Completed">✓</span>
+                      <span className="text-green-500" aria-label="Completed">
+                        ✓
+                      </span>
                     )}
                   </AlertTitle>
                   <AlertDescription className="mt-3 md:mt-4 text-sm md:text-base text-gray-700">
                     {steps[displayedStep].longDescription}
                   </AlertDescription>
                 </Alert>
-                
-      
               </div>
             )}
           </div>
@@ -575,8 +631,8 @@ const MemoizedSDLCStepper = React.memo(SDLCStepper);
 export default function SDLCVisualization() {
   return (
     <div className="max-w-7xl mx-auto p-2 md:p-4">
-      <MemoizedSDLCStepper 
-        autoRotateInterval={5000} 
+      <MemoizedSDLCStepper
+        autoRotateInterval={5000}
         pauseOnHover={true}
         cardTitle="Software Development Life Cycle"
       />
