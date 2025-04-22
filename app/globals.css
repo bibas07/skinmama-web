@@ -120,3 +120,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+.vertical-timeline-custom-line {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.vertical-timeline-element-content {
+  max-width: 100% !important;
+}
+.vertical-timeline::before {
+  left: 50% !important;
+  margin-left: -2px !important;
+}
+@media only screen and (max-width: 1169px) {
+  .vertical-timeline::before {
+    left: 18px !important;
+  }
+}
