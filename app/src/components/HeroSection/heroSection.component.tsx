@@ -85,7 +85,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+    <section className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden min-h-screen">
       <div className="max-w-screen-xl px-4 py-12 mx-auto lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
           {/* Content Column */}
