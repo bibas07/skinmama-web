@@ -54,7 +54,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuSkinMama() {
   return (
-    <div className="h-16 min-w-screen bg-primary">
+    <div className="h-16 max-w-screen bg-primary">
       <div className="container mx-auto flex h-full items-center justify-between px-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
