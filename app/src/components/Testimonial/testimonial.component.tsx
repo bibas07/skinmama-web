@@ -91,11 +91,11 @@ export function Testimonials() {
               {testimonials.map((testimonial) => (
                 <CarouselItem
                   key={testimonial.id}
-                  className="md:basis-1/2 lg:basis-1/3"
+                  className="md:basis-1/2 gap-4 -ml-2 sm:-ml-0 basis-1/1"
                 >
                   <div className="p-1 sm:p-2 md:p-4">
                     <Card className="border border-slate-200">
-                      <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                      <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
                         <Avatar className="h-20 w-20 border-2 border-primary rounded-4xl">
                           <AvatarImage
                             src={testimonial.avatar}
@@ -135,8 +135,8 @@ export function Testimonials() {
               ))}
             </CarouselContent>
             <div className="hidden sm:block">
-              <CarouselPrevious className="left-1 sm:-left-12" />
-              <CarouselNext className="right-1 sm:-right-12" />
+              <CarouselPrevious className="left-1 lg:-left-10" />
+              <CarouselNext className="right-1 lg:-right-10" />
             </div>
           </Carousel>
         </div>
