@@ -1,4 +1,5 @@
 import FeatureSection from './src/components/Feature/features.components';
+import { Footer } from './src/components/Footer/footer.component';
 import HeroSection from './src/components/HeroSection/heroSection.component';
 import { QuestionAnswerSection } from './src/components/QuestionAnswer/questionAnswer.component';
 import { Testimonials } from './src/components/Testimonial/testimonial.component';
@@ -12,6 +13,7 @@ export default function Home() {
       <SkinMamaLifeCycle />
       <QuestionAnswerSection />
       <Testimonials />
+      <Footer />
     </div>
   );
 }
