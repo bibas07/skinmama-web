@@ -31,7 +31,7 @@ const testimonials = [
     avatar: 'https://i.pravatar.cc/150?img=8',
     initials: 'DC',
     content:
-      'After trying countless products, SkinMama is the only brand that consistently delivers results for my sensitive skin.',
+      'After trying countless products, SkinMama is the only brand that consistently delivers results for my sensitive skin effectively.',
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export function Testimonials() {
     <section className="w-full flex justify-center md:py-16 lg:py-20 bg-slate-50">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-4 text-center mb-10">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
             What Our Customers Say
           </h2>
           <p className="text-muted-foreground max-w-[700px]">
