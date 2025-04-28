@@ -17,13 +17,10 @@ export default function HeroSection() {
 
   // Define slides with proper public paths
   const slides: Slide[] = [
-    {
-      id: 1,
-      src: '/phone-mockup.png',
-      alt: 'Image 1',
-    },
-    { id: 2, src: '/skin-image-1.jpg', alt: 'Image 2' },
-    { id: 3, src: '/skin-image-3.jpg', alt: 'Image 3' },
+    { id: 1, src: '/slider/scan_face2.jpg', alt: 'Image 1' },
+    { id: 2, src: '/slider/scan_face3.jpg', alt: 'Image 2' },
+    { id: 3, src: '/slider/scan_face.jpg', alt: 'Image 3' },
+    { id: 4, src: '/slider/scan_face4.jpg', alt: 'Image 4' },
   ];
 
   const nextSlide = (): void => {
@@ -84,54 +81,71 @@ export default function HeroSection() {
     }
   };
 
+  const IMAGES = [
+    '/users/user.jpg',
+    '/users/user6.jpg',
+    '/users/user5.jpg',
+    '/users/user4.jpg',
+    '/users/user8.jpg',
+  ];
+
   return (
     <section className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden min-h-screen">
       <div className="max-w-screen-xl px-4 py-12 mx-auto lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
-          {/* Content Column */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
-              <span className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-                New Feature
+              <span className="inline-flex items-center px-3 py-1 text-sm rounded-full bg-secondary text-white font-bold dark:bg-blue-900/30 dark:text-blue-300">
+                AI Powered
               </span>
               <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl dark:text-white">
-                Streamlined Payments
-                <span className="block text-blue-600 dark:text-blue-400">
-                  for Software Companies
+                Unlock Skin Insights Instantly with
+                <span className="block text-primary dark:text-blue-400">
+                  Just a Smartphone
                 </span>
               </h1>
               <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                From seamless checkout experiences to global tax compliance,
-                companies worldwide choose our platform to simplify their
-                payment infrastructure.
+                Empower your customers with personalized skincare solutions
+                through our advanced, white-label AI face scan technology.
+                Trained on a database of over 50,000 real images, our system
+                delivers highly accurate, real-time skin analysis directly from
+                any smartphone. Seamlessly integrate this cutting-edge solution
+                into your brand to offer precise product recommendations,
+                enhance customer trust, and drive engagement like never before.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="#"
-                className="flex items-center justify-center px-6 py-4 font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                className="flex items-center justify-center px-6 py-4 font-medium text-white bg-primary rounded-lg hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
               >
-                Start free trial
+                About Us
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="#"
                 className="flex items-center justify-center px-6 py-4 font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors focus:ring-4 focus:ring-gray-100 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
               >
-                Talk to an expert
+                Contact Us
               </Link>
             </div>
 
             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((num) => (
+                  {IMAGES.map((img) => (
                     <div
-                      key={num}
-                      className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800 overflow-hidden shadow-md"
+                      key={img}
+                      className="w-10 h-10 rounded-full border-2 border-secondary dark:border-gray-800 overflow-hidden shadow-md"
                     >
-                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-300 dark:from-blue-800 dark:to-blue-600" />
+                      <Image
+                        src={img}
+                        alt={img}
+                        className="object-cover w-full h-full"
+                        width={80}
+                        height={80}
+                      />
                     </div>
                   ))}
                 </div>
@@ -140,7 +154,7 @@ export default function HeroSection() {
                     <span className="font-bold text-blue-600 dark:text-blue-400">
                       2,500+
                     </span>{' '}
-                    companies trust our platform
+                    user trust our platform
                   </p>
                 </div>
               </div>
@@ -177,7 +191,7 @@ export default function HeroSection() {
                         src={slide.src}
                         alt={slide.alt}
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                         priority={index === 0}
                         className="drop-shadow-2xl"
                       />
