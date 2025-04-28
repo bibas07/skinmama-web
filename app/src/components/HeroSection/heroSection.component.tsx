@@ -2,7 +2,7 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface Slide {
   id: number;
@@ -23,7 +23,7 @@ export default function HeroSection() {
     { id: 4, src: '/slider/scan_face4.jpg', alt: 'Image 4' },
   ];
 
-  const nextSlide = (): void => {
+  const nextSlide = useCallback((): void => {
     if (isAnimating) return;
 
     setIsAnimating(true);
@@ -31,7 +31,7 @@ export default function HeroSection() {
 
     // Reset animation lock after transition completes
     setTimeout(() => setIsAnimating(false), 500);
-  };
+  }, [isAnimating, slides.length]);
 
   const prevSlide = (): void => {
     if (isAnimating) return;
@@ -53,6 +53,16 @@ export default function HeroSection() {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
+  const startSlideTimer = useCallback((): void => {
+    if (slideTimerRef.current) {
+      clearInterval(slideTimerRef.current);
+    }
+
+    slideTimerRef.current = setInterval(() => {
+      nextSlide();
+    }, 5000);
+  }, [nextSlide]);
+
   // Auto-slide effect with pause on hover
   useEffect(() => {
     startSlideTimer();
@@ -62,17 +72,7 @@ export default function HeroSection() {
         clearInterval(slideTimerRef.current);
       }
     };
-  }, [currentSlide]);
-
-  const startSlideTimer = (): void => {
-    if (slideTimerRef.current) {
-      clearInterval(slideTimerRef.current);
-    }
-
-    slideTimerRef.current = setInterval(() => {
-      nextSlide();
-    }, 5000);
-  };
+  }, [currentSlide, startSlideTimer]);
 
   const pauseSlideTimer = (): void => {
     if (slideTimerRef.current) {
@@ -190,10 +190,9 @@ export default function HeroSection() {
                       <Image
                         src={slide.src}
                         alt={slide.alt}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        className="object-cover w-full h-full drop-shadow-2xl"
                         priority={index === 0}
-                        className="drop-shadow-2xl"
                       />
                     </div>
                   </div>
