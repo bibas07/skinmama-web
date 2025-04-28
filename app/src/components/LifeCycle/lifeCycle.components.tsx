@@ -6,12 +6,7 @@ import {
   AlertTitle,
 } from '@skinmama/components/ui/alert';
 import { Badge } from '@skinmama/components/ui/badge';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@skinmama/components/ui/card';
+import { Card, CardContent, CardHeader } from '@skinmama/components/ui/card';
 import debounce from 'lodash.debounce';
 import React, {
   useCallback,
@@ -37,43 +32,39 @@ interface SDLCStepperProps {
   activeColor?: string;
   inactiveColor?: string;
   completedColor?: string;
-  pauseOnHover?: boolean;
   className?: string;
-  cardTitle?: string;
 }
 
 const defaultSteps: Step[] = [
   {
     label: 'Scan',
-    description: 'Define requirements and scope',
+    description: 'Collect detailed skin data.',
     icon: '📋',
     longDescription:
-      'The planning phase establishes project requirements, objectives, timeline, and resources. This is where the team defines what needs to be built and how it will address business needs. A clear roadmap is created to guide development efforts.',
-    ariaLabel: 'Planning phase',
+      'The AI tool automatically reads and analyzes the uploaded skin images, detecting visible details without any manual input.',
   },
   {
-    label: 'Answering Questions',
-    description: 'Design and build the solution',
+    label: 'Question Answer',
+    description:
+      'Customize the analysis with personal lifestyle and skin info.',
     icon: '💻',
     longDescription:
-      'Questions related to Gender, Age, Hours of sleep, Skin Sensitive, Type and Goal',
-    ariaLabel: 'Development phase',
+      'After the scan, users manually answer simple questions like gender, age, sleep habits, skin sensitivity, skin type, and skincare goals.',
   },
   {
     label: 'Analyze',
-    description: 'Test, release and maintain',
+    description: 'AI examines everything to understand your skin condition.',
     icon: '🚀',
     longDescription:
-      'The deployment phase includes final testing, user acceptance, release to production, and ongoing maintenance. After launch, the team addresses bugs, implements improvements, and ensures the system continues to meet business objectives.',
-    ariaLabel: 'Deployment phase',
+      'The AI processes the image and your answers together to detect skin issues like acne, pimples, dark circles, wrinkles, and pores.',
   },
   {
     label: 'Results',
-    description: 'Design and build the solution',
+    description:
+      'You get a complete, personalized report and product suggestions.',
     icon: '💻',
     longDescription:
-      'The development phase encompasses both design and implementation. Engineers transform requirements into working software through coding, regular builds, and initial testing. This phase produces the functional components that will make up the final product.',
-    ariaLabel: 'Development phase',
+      'Finally, the system provides a complete output, including skin scores in percentage (e.g., acne severity 75%, hydration 60%) along with detailed descriptions and improvement suggestions.',
   },
 ];
 
@@ -85,14 +76,11 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
   activeColor = '#3b82f6',
   inactiveColor = '#d1d5db',
   completedColor = '#10b981',
-  pauseOnHover = true,
   className = '',
-  cardTitle = 'How can we process',
 }) => {
   // State
   const [activeStep, setActiveStep] = useState(initialStep);
   const [displayedStep, setDisplayedStep] = useState(initialStep);
-  const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [containerSize, setContainerSize] = useState(size);
   const [viewportSize, setViewportSize] = useState({
@@ -188,17 +176,15 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
     const intervalDuration = 20; // Update every 20ms
 
     const updateProgress = () => {
-      if (!isPaused) {
-        const currentTime = Date.now();
-        const elapsedTime = currentTime - startTime;
+      const currentTime = Date.now();
+      const elapsedTime = currentTime - startTime;
 
-        if (elapsedTime >= intervalDuration) {
-          setProgress((prev) => {
-            const increment = 100 / (autoRotateInterval / intervalDuration);
-            const newProgress = prev + increment;
-            return newProgress >= 100 ? 100 : newProgress;
-          });
-        }
+      if (elapsedTime >= intervalDuration) {
+        setProgress((prev) => {
+          const increment = 100 / (autoRotateInterval / intervalDuration);
+          const newProgress = prev + increment;
+          return newProgress >= 100 ? 100 : newProgress;
+        });
       }
 
       requestAnimationRef.current = requestAnimationFrame(updateProgress);
@@ -211,7 +197,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
         cancelAnimationFrame(requestAnimationRef.current);
       }
     };
-  }, [isPaused, autoRotateInterval]);
+  }, [autoRotateInterval]);
 
   // Handle step transitions based on progress
   useEffect(() => {
@@ -283,20 +269,15 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
       <div
         className="relative w-full flex justify-center"
         role="region"
-        aria-label="SDLC Process Stepper"
+        aria-label="Process Stepper"
       >
         <svg
           width={containerSize}
           height={containerSize}
           className="overflow-visible"
           aria-labelledby="sdlc-cycle-title"
-          onMouseEnter={() => pauseOnHover && setIsPaused(true)}
-          onMouseLeave={() => pauseOnHover && setIsPaused(false)}
         >
-          <title id="sdlc-cycle-title">Software Development Life Cycle</title>
-          <desc>
-            Interactive visualization of the software development process
-          </desc>
+          <title id="sdlc-cycle-title">How Does It Works?</title>
 
           {/* Background circle */}
           <circle
@@ -585,11 +566,7 @@ const SDLCStepper: React.FC<SDLCStepperProps> = ({
   return (
     <div ref={containerRef} className={`w-full ${className}`}>
       <Card className="w-full shadow-lg border border-gray-100">
-        <CardHeader className="pb-2 md:pb-4">
-          <CardTitle className="text-center text-xl md:text-2xl text-gray-800">
-            {cardTitle}
-          </CardTitle>
-        </CardHeader>
+        <CardHeader className="pb-2 md:pb-4"></CardHeader>
         <CardContent>
           <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-center w-full">
             <div
@@ -631,11 +608,7 @@ const MemoizedSDLCStepper = React.memo(SDLCStepper);
 export default function SDLCVisualization() {
   return (
     <div className="max-w-7xl mx-auto p-2 md:p-4">
-      <MemoizedSDLCStepper
-        autoRotateInterval={5000}
-        pauseOnHover={true}
-        cardTitle="Software Development Life Cycle"
-      />
+      <MemoizedSDLCStepper autoRotateInterval={5000} />
     </div>
   );
 }
