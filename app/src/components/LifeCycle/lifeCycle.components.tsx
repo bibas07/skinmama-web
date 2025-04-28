@@ -44,7 +44,7 @@ interface SDLCStepperProps {
 
 const defaultSteps: Step[] = [
   {
-    label: 'Planning',
+    label: 'Scan',
     description: 'Define requirements and scope',
     icon: '📋',
     longDescription:
@@ -52,15 +52,15 @@ const defaultSteps: Step[] = [
     ariaLabel: 'Planning phase',
   },
   {
-    label: 'Development',
+    label: 'Answering Questions',
     description: 'Design and build the solution',
     icon: '💻',
     longDescription:
-      'The development phase encompasses both design and implementation. Engineers transform requirements into working software through coding, regular builds, and initial testing. This phase produces the functional components that will make up the final product.',
+      'Questions related to Gender, Age, Hours of sleep, Skin Sensitive, Type and Goal',
     ariaLabel: 'Development phase',
   },
   {
-    label: 'Deployment',
+    label: 'Analyze',
     description: 'Test, release and maintain',
     icon: '🚀',
     longDescription:
@@ -68,7 +68,7 @@ const defaultSteps: Step[] = [
     ariaLabel: 'Deployment phase',
   },
   {
-    label: 'Development',
+    label: 'Results',
     description: 'Design and build the solution',
     icon: '💻',
     longDescription:
