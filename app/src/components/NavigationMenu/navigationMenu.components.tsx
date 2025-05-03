@@ -16,8 +16,8 @@ export function NavigationMenuSkinMama() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { title: 'About Us', url: '/about-us' },
-    { title: 'Contact Us', url: '/contact-us' },
+    { title: 'About Us', url: '/pages/AboutUs' },
+    { title: 'Contact Us', url: '/pages/ContactUs' },
   ];
   return (
     <div className="h-16 max-w-screen bg-primary">
