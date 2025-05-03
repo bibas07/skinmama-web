@@ -3,7 +3,7 @@ import HeroSection from './src/components/HeroSection/heroSection.component';
 import { QuestionAnswerSection } from './src/components/QuestionAnswer/questionAnswer.component';
 import { Testimonials } from './src/components/Testimonial/testimonial.component';
 import FeatureCard from './src/modules/FeatureCard/featureCard.modules';
-import SkinMamaLifeCycle from './src/modules/SectionTwo/sectionTwo.modules';
+import StepProcess from './src/modules/Process/process.modules';
 
 export default function Home() {
   return (
@@ -11,7 +11,9 @@ export default function Home() {
       <HeroSection />
       {/* <Feature /> */}
       <FeatureCard />
-      <SkinMamaLifeCycle />
+      {/* <SkinMamaLifeCycle /> */}
+
+      <StepProcess />
       <QuestionAnswerSection />
       <Testimonials />
       <Footer />

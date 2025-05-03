@@ -49,7 +49,7 @@ export default function FeatureCard() {
   ];
   return (
     <div className="m-6">
-      <div className="text-3xl font-bold sm:text-4xl w-full text-center m-4">
+      <div className="text-3xl font-bold sm:text-4xl w-full tracking-tight text-center m-4">
         Core <span className="text-primary text-5xl">Features</span>
       </div>
       <div className="flex w-full mx-auto gap-8">
