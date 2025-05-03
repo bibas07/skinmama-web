@@ -1,5 +1,5 @@
 'use client';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -17,10 +17,11 @@ export default function HeroSection() {
 
   // Define slides with proper public paths
   const slides: Slide[] = [
-    { id: 1, src: '/slider/scan_face2.jpg', alt: 'Image 1' },
-    { id: 2, src: '/slider/scan_face3.jpg', alt: 'Image 2' },
-    { id: 3, src: '/slider/scan_face.jpg', alt: 'Image 3' },
-    { id: 4, src: '/slider/scan_face4.jpg', alt: 'Image 4' },
+    { id: 1, src: '/slider/image-1.png', alt: 'Image 1' },
+    { id: 2, src: '/slider/image-2.png', alt: 'Image 2' },
+    { id: 3, src: '/slider/image-3.png', alt: 'Image 3' },
+    { id: 4, src: '/slider/image-4.png', alt: 'Image 4' },
+    { id: 5, src: '/slider/image-5.png', alt: 'Image 5' },
   ];
 
   const nextSlide = useCallback((): void => {
@@ -115,19 +116,28 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-row gap-4">
               <Link
-                href="#"
-                className="flex items-center justify-center px-6 py-4 font-medium text-white bg-primary rounded-lg hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                href="https://play.google.com/store/apps/details?id=com.skincare.skinai"
+                target="_blank"
               >
-                About Us
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <Image
+                  src={'/google-play.png'}
+                  alt={'app-store'}
+                  width={240}
+                  height={240}
+                />
               </Link>
               <Link
-                href="#"
-                className="flex items-center justify-center px-6 py-4 font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors focus:ring-4 focus:ring-gray-100 dark:text-white dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                href="https://apps.apple.com/app/id6744535277"
+                target="_blank"
               >
-                Contact Us
+                <Image
+                  src={'/app-store.svg'}
+                  alt={'app-store'}
+                  width={218}
+                  height={218}
+                />
               </Link>
             </div>
 
@@ -137,7 +147,7 @@ export default function HeroSection() {
                   {IMAGES.map((img) => (
                     <div
                       key={img}
-                      className="w-10 h-10 rounded-full border-2 border-secondary dark:border-gray-800 overflow-hidden shadow-md"
+                      className="w-10 h-10 rounded-full border-2 border-primary dark:border-gray-800 overflow-hidden shadow-md"
                     >
                       <Image
                         src={img}
@@ -151,7 +161,7 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    <span className="font-bold text-blue-600 dark:text-blue-400">
+                    <span className="font-bold text-primary dark:text-blue-400">
                       2,500+
                     </span>{' '}
                     user trust our platform

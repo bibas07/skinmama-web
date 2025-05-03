@@ -8,83 +8,39 @@ import {
 export function QuestionAnswerSection() {
   const FAQS_QUESTION = [
     {
-      question: 'What does an AI Skin Analysis include and how accurate is it?',
+      question: 'What is Skin Insights?',
       answer:
-        "SkinMama's Skin Analysis detects 15 key skin concerns including spots, texture, dark circles, oiliness, acne, droopy lower eyelid, radiance, wrinkles, eye bags, moisture, redness, droopy upper eyelid, firmness, and pores with AI technology which is highly accurate and verified with a 95% test-retest reliability rate. Additionally, our AI Skin Analysis helps clients find their unique skin type and skin age. Contact us to learn more.",
+        'Skin Insights by SkinMama is a personalized skincare guide. Our tool analyzes your skin and provides custom recommendations for healthier and radiant skin.',
     },
     {
-      question:
-        'What is the best skin analyzer for medical spas and aestheticians?',
+      question: 'Is Skin Insights the right tool for me?',
       answer:
-        "SkinMama's Skincare Pro is the best AI skin analysis service for medical spas, aestheticians, beauty clinics, and dermatologists, offering fast and accurate assessment. It can be integrated easily into your business.",
+        "Yes, it helps you find your personalized day-time and night-time skincare routine, by just uploading a selfie. This skin analysis tool will help identify your skin's unique strengths as well as areas of focus and provide a full routine.",
     },
     {
-      question: 'What are the benefits of using AI Skin Analysis?',
+      question: 'How to use Skin Insights?',
       answer:
-        'Our Skin Analyzer includes a scope of detailed skin report, where all the skin concerns will be displayed as scores. It provides fast, precise results, identifying skin types and issues instantly, making it a valuable tool for medical spas, aestheticians, and dermatology practices. Additionally, based on the analysis, the AI tech can offer personalized skincare routine recommendations tailored to address the specific needs from the customers.',
+        "Skin Insights is incredibly user-friendly. Simply capture a clear photo and let our tool analyze key areas like your forehead, crow's feet, and mouth. Experience the magic of personalized skincare.",
     },
     {
-      question: 'What kind of skin analyzer is suitable for my business?',
-      answer:
-        "A Skin Analyzer is often a machine or software that can scan and analyze a user's face, identifying skin concerns, and finally, providing personalized skincare routine recommendations. Talk to our experts and we'll give you the best advice on how to best integrated it into your business.",
+      question: 'How long does it take to use Skin Insights?',
+      answer: 'Skin Insights doesn’t take more than five minutes to complete.',
     },
 
     {
-      question: 'What tools or systems are best for skin analysis?',
+      question: 'Do you have to download an app to use Skin Insights?',
       answer:
-        "SkinMama's Skincare Pro is ideal for medical spas, aestheticians, and dermatologists, offering fast and accurate assessments. It identifies skin concerns within seconds and generates detailed reports based on user's skin condition.",
+        'No, you do not have to download an app to use the tool since it is available on both SkinMama website and App. We recommend using the tool on your mobile device since you will need to take a selfie for better image quality.',
     },
     {
-      question: 'How long does skin analysis take and what is the process?',
+      question: 'Can I save my results?',
       answer:
-        "SkinMama's AI Skin Analyzer takes only seconds, scanning the face through live camera or photos and instantly generating a detailed skin report for personalized skincare recommendations.",
+        'If we have your consent & you provide SkinMama with your contact information, the results of the analysis (i.e., skin age, skin concerns scale), the skin report shown to you (i.e., skin analysis on key skin attributes), and all recommendations will be stored within your profile at SkinMama. Your results will also be emailed to you.',
     },
     {
-      question: 'How is AI used in dermatology and skincare analysis?',
+      question: 'Is my picture stored?',
       answer:
-        "SkinMama's AI Skin Analyzer helps clients identify skin concerns through photos or a live camera. This technology enables users to gain more insight into their skin conditions. Contact us to learn more.",
-    },
-    {
-      question:
-        'How does AI Skin Analysis work to identify the skin type and age?',
-      answer:
-        "Utilizing advanced AI, our Skin Analyzer scans to identify concerns such as acne, dark circles, and fine lines. It determines skin types by analyzing the T-zone and U-zone of user's face, evaluating three dimensions: oiliness, dryness, and redness. Based on various skin conditions, it accurately assesses the user's skin age.",
-    },
-    {
-      question: 'What are the 8 types of skin?',
-      answer:
-        'There are eight primary skin types, each with its unique characteristics: normal, sensitive, dry, oily, dry sensitive, oily sensitive, combination and combination sensitive. Identifying your specific skin type is the first step toward tailoring a proper skincare routine. ',
-    },
-    {
-      question: 'What is a skin scanner?',
-      answer:
-        "A skin scanner is an innovative device designed to analyze the skin's condition through a deep face analysis online with AI and generate a comprehensive report tailored to the user's skin characteristics. ",
-    },
-
-    {
-      question: 'What is the AI skin score?',
-      answer:
-        "The AI skin score, generated by the AI Skin Analyzer, serves as a comprehensive indicator of various skin conditions. It takes into account a range of factors analyzed by the skin technology, providing users with a detailed assessment of their skin's overall condition and appearance.",
-    },
-    {
-      question: 'How to check skin analysis?',
-      answer:
-        "With our Skin Scanner online free, analyzing a user's skin involves three steps:Step 1: Activate the Skin Analysis service by turning on the cameras on mobile devices. Step 2: The AI Skin Analyzer detects the user's skin concerns and displays skin scores by analyzing the skin conditions. Step 3: The AI Skin Analysis solution generates a skin report to help users understand their skin.",
-    },
-    {
-      question: 'How to check skin type online?',
-      answer:
-        'Leveraging AI technology for skin type analysis can revolutionize how businesses offer personalized skincare solutions. Here’s how our Skin Analysis tool can help: Steps to Check Skin Type Online Access the AI Skin Analysis Tool: Utilize our AI Skin Analysis solution, designed for seamless integration into your platform. Upload a Photo or Turn on Live Camera: Clients upload a clear image of their face or use the live camera feature for real-time analysis. AI Analysis: Our advanced AI algorithms analyze the photo, considering various skin attributes like oiliness, dryness, and sensitivity. Receive Results: The AI provides a detailed skin type report—oily, dry, combination, or normal. Tailored Recommendations: Based on the analysis, the AI suggests customized skincare products and routines.',
-    },
-    {
-      question: 'How to make a skin type diagnosis without machines?',
-      answer:
-        "SkinMama's Skin Analyzer makes it possible to perform a skin type diagnosis without machines. This advanced technology uses AI to analyze, providing an accurate diagnosis of skin type and specific needs. Our face analyzer tool focused on a personalized skin analysis to provide recommendations for products, treatments and skin care routines. This solution not only eliminates the need for expensive equipment, but also offers convenience and accuracy, significantly improving the customer's skin care experience.",
-    },
-    {
-      question: 'What is a facial skin scan?',
-      answer:
-        "A facial skin scan, often referred to as a skin analysis facial scan, is a non-invasive, touchless procedure that employs advanced camera technology and artificial intelligence (AI) to assess the condition of an individual's skin. This process is widely used in the skincare and beauty industries to provide detailed insights into various skin concerns and conditions.",
+        "Yes, SkinMama only briefly stores your selfie. But once the information is returned to you, your selfie is deleted from the central cloud-based hub (generally within seconds of the analysis's completion).",
     },
   ];
   return (
