@@ -17,10 +17,11 @@ export default function HeroSection() {
 
   // Define slides with proper public paths
   const slides: Slide[] = [
-    { id: 1, src: '/slider/scan_face2.jpg', alt: 'Image 1' },
-    { id: 2, src: '/slider/scan_face3.jpg', alt: 'Image 2' },
-    { id: 3, src: '/slider/scan_face.jpg', alt: 'Image 3' },
-    { id: 4, src: '/slider/scan_face4.jpg', alt: 'Image 4' },
+    { id: 1, src: '/slider/image-1.png', alt: 'Image 1' },
+    { id: 2, src: '/slider/image-2.png', alt: 'Image 2' },
+    { id: 3, src: '/slider/image-3.png', alt: 'Image 3' },
+    { id: 4, src: '/slider/image-4.png', alt: 'Image 4' },
+    { id: 4, src: '/slider/image-5.png', alt: 'Image 5' },
   ];
 
   const nextSlide = useCallback((): void => {
