@@ -3,10 +3,11 @@
 import { Icons } from '@skinmama/components/icons';
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
+  NavigationMenuTrigger,
 } from '@skinmama/components/ui/navigation-menu';
 import { cn } from '@skinmama/lib/utils';
 import Link from 'next/link';
@@ -15,9 +16,20 @@ import React, { useState } from 'react';
 export function NavigationMenuSkinMama() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const components: { title: string; href: string; description?: string }[] = [
+    {
+      title: 'Android',
+      href: 'https://play.google.com/store/apps/details?id=com.skincare.skinai',
+    },
+    {
+      title: 'IOS',
+      href: 'https://apps.apple.com/app/id6744535277',
+    },
+  ];
+
   const navLinks = [
-    { title: 'About Us', url: '/about-us' },
-    { title: 'Contact Us', url: '/contact-us' },
+    { title: 'About Us', url: '/pages/AboutUs' },
+    // { title: 'Contact Us', url: '/pages/ContactUs' },
   ];
   return (
     <div className="h-16 max-w-screen bg-primary">
@@ -46,22 +58,25 @@ export function NavigationMenuSkinMama() {
               ))}
             </div>
 
-            <div className="ml-auto">
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="https://play.google.com/store/apps/details?id=com.skincare.skinai&pcampaignid=web_share"
-                    target="_blank"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'bg-white text-primary hover:bg-gray-100'
-                    )}
-                  >
-                    Download App
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </div>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="text-white">
+                Download App{' '}
+              </NavigationMenuTrigger>
+
+              <NavigationMenuContent>
+                <ul className="grid w-[200px] gap-3 p-4">
+                  {components.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -135,6 +150,7 @@ const ListItem = React.forwardRef<
       <NavigationMenuLink asChild>
         <Link
           href={props.href ?? '/'}
+          target="_blank"
           ref={ref}
           className={cn(
             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
