@@ -21,7 +21,7 @@ export default function HeroSection() {
     { id: 2, src: '/slider/image-2.png', alt: 'Image 2' },
     { id: 3, src: '/slider/image-3.png', alt: 'Image 3' },
     { id: 4, src: '/slider/image-4.png', alt: 'Image 4' },
-    { id: 4, src: '/slider/image-5.png', alt: 'Image 5' },
+    { id: 5, src: '/slider/image-5.png', alt: 'Image 5' },
   ];
 
   const nextSlide = useCallback((): void => {
