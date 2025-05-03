@@ -6,25 +6,25 @@ export default function StepProcess() {
       title: 'Scan',
       description:
         'Our advanced technology scans your skin to identify your unique skin profile and concerns.',
-      image: '/steps/step-1.png',
+      image: '/steps/1.png',
     },
     {
       title: 'Analyze',
       description:
         'AI-powered algorithms analyze your skin data to determine your skin type and condition.',
-      image: '/steps/step-2.png',
+      image: '/steps/2.png',
     },
     {
       title: 'Product Recommendations',
       description:
         'Receive personalized product suggestions tailored specifically to your skin needs.',
-      image: '/steps/step-3.png',
+      image: '/steps/3.png',
     },
     {
       title: 'Routine',
       description:
         'Follow your custom skincare routine for healthy, glowing skin that lasts.',
-      image: '/steps/step-4.png',
+      image: '/steps/4.png',
     },
   ];
 
