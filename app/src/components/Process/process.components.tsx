@@ -20,13 +20,7 @@ export function ProcessComponent({
         </div>
 
         <div className="w-full h-full mb-3 flex items-center justify-center">
-          <Image
-            src={image}
-            alt={title}
-            width={300}
-            height={300}
-            className="aspect-10 max-h-full object-contain"
-          />
+          <Image src={image} alt={title} width={300} height={300} />
         </div>
 
         <h3 className="text-lg font-bold text-center text-gray-800 mb-2">
