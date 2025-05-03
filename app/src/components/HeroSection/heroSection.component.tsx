@@ -116,7 +116,10 @@ export default function HeroSection() {
             </div>
 
             <div className="flex flex-row gap-4">
-              <Link href="#">
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.skincare.skinai"
+                target="_blank"
+              >
                 <Image
                   src={'/google-play.png'}
                   alt={'app-store'}
@@ -124,7 +127,10 @@ export default function HeroSection() {
                   height={240}
                 />
               </Link>
-              <Link href="#">
+              <Link
+                href="https://apps.apple.com/app/id6744535277"
+                target="_blank"
+              >
                 <Image
                   src={'/app-store.svg'}
                   alt={'app-store'}
