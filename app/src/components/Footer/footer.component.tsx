@@ -4,9 +4,9 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="bg-secondary text-white p-4">
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="w-full grid grid-row md:grid-cols-3 gap-6">
         <div>
-          <h4 className="text-lg font-bold border-b-2 border-amber-50 w-fit mb-2">
+          <h4 className="text-lg font-bold border-b-2 border-amber-50 w-full mb-2 text-center md:text-left">
             About Us
           </h4>
           <p className="text-sm">
@@ -53,14 +53,34 @@ export function Footer() {
           <div className="text-lg font-bold mb-2 border-b-2 border-amber-50 w-fit">
             Follow On
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-row gap-2">
             <Link
-              href="https://www.instagram.com/skinmamaapp/"
+              href="http://instagram.com/skinmama_ai?igsh=b3djYnVjZ3FtbGFp&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-amber-300 transition-colors"
             >
-              <span>Instagram</span>
+              <Image
+                src={'/instagram.png'}
+                alt="Instagram"
+                width={30}
+                height={30}
+                className="rounded-full"
+              />
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@skinmama.ai?_t=ZS-8w4K7weBemV&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-amber-300 transition-colors"
+            >
+              <Image
+                src={'/tiktok.png'}
+                alt="tiktok"
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
             </Link>
           </div>
         </div>
