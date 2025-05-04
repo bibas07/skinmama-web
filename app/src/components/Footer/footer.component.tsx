@@ -4,9 +4,9 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer className="bg-secondary text-white p-4">
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="w-full grid grid-row md:grid-cols-3 gap-6">
         <div>
-          <h4 className="text-lg font-bold border-b-2 border-amber-50 w-fit mb-2">
+          <h4 className="text-lg font-bold border-b-2 border-amber-50 w-full mb-2 text-center md:text-left">
             About Us
           </h4>
           <p className="text-sm">
