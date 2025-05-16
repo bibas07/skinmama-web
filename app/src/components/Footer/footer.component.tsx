@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-secondary text-white p-4">
       <div className="w-full grid grid-row md:grid-cols-3 gap-6">
         <div>
-          <h4 className="text-lg font-bold border-b-2 border-amber-50 w-full mb-2 text-center md:text-left">
+          <h4 className="text-lg font-bold w-full mb-2 text-center md:text-left">
             About Us
           </h4>
           <p className="text-sm">
@@ -16,10 +16,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col">
-          <div className="text-lg font-bold mb-2 border-b-2 border-amber-50 w-fit">
-            Download App
-          </div>
-          <div className="flex flex-row md:flex-col gap-2">
+          <div className="flex flex-row md:flex-col gap-4">
             <Link
               href="https://play.google.com/store/apps/details?id=com.skincare.skinai"
               target="_blank"
@@ -50,9 +47,7 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="text-lg font-bold mb-2 border-b-2 border-amber-50 w-fit">
-            Follow On
-          </div>
+          <div className="text-lg font-bold mb-2 w-fit">Follow On</div>
           <div className="flex flex-row gap-2">
             <Link
               href="http://instagram.com/skinmama_ai?igsh=b3djYnVjZ3FtbGFp&utm_source=qr"
