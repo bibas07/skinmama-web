@@ -21,7 +21,7 @@ export default function Pricing() {
       <div className="mt-8">
         <PricingComponent
           features={FEATURES}
-          pricing={{ weekly: 3.38, monthly: 10.16, annual: 112.99 }}
+          pricing={{ weekly: 2.99, monthly: 8.99, annual: 99.99 }}
         />
       </div>
     </div>

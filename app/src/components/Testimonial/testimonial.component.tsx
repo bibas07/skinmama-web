@@ -1,6 +1,5 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { Card, CardContent } from '@skinmama/components/ui/card';
 import {
   Carousel,
@@ -17,48 +16,54 @@ import * as React from 'react';
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'Loyal Customer',
-    avatar: 'https://i.pravatar.cc/150?img=1',
-    initials: 'SJ',
+    name: 'Riya S.',
+    rating: 5,
     content:
-      'SkinMama products completely transformed my skincare routine. My complexion has never looked better!',
+      'I’ve tried everything for my skin, but nothing ever felt this accurate. SkinMama scanned my face in seconds and actually understood what my skin needed. My routine has never been this consistent or effective!',
   },
   {
     id: 2,
-    name: 'David Chen',
-    role: 'Beauty Enthusiast',
-    avatar: 'https://i.pravatar.cc/150?img=8',
-    initials: 'DC',
+    rating: 3,
+    name: 'Kunal T.',
     content:
-      'After trying countless products, SkinMama is the only brand that consistently delivers results for my sensitive skin effectively.',
+      'The app is smart and easy to use, but I wish it supported more local products in the recommendations. Still, the scan feature was really insightful.',
   },
   {
     id: 3,
-    name: 'Michelle Wong',
-    role: 'Skincare Blogger',
-    avatar: 'https://i.pravatar.cc/150?img=5',
-    initials: 'MW',
+    rating: 5,
+    name: 'Anisha D.',
     content:
-      'As someone who reviews skincare professionally, I can confidently say SkinMama stands out for its quality and effectiveness.',
+      'SkinMama is like having a dermatologist in my pocket. I noticed improvements in just two weeks of following the routine it gave me. It’s made skincare simple and stress-free.',
   },
   {
     id: 4,
-    name: 'James Taylor',
-    role: 'New Customer',
-    avatar: 'https://i.pravatar.cc/150?img=3',
-    initials: 'JT',
+    name: 'Mohit G.',
+    rating: 2,
     content:
-      "I was skeptical at first, but after just two weeks of using SkinMama, my friends started asking what I'd changed in my routine!",
+      'Interesting concept, but didn’t fully match my expectations. The analysis felt rushed, and I didn’t find the recommendations very helpful for my sensitive skin.',
   },
   {
     id: 5,
-    name: 'Aisha Patel',
-    role: 'Long-time User',
-    avatar: 'https://i.pravatar.cc/150?img=10',
-    initials: 'AP',
+    rating: 4,
+    name: 'Priya M.',
     content:
-      "SkinMama products have been my secret weapon for maintaining youthful skin for over 3 years now. I'm completely hooked!",
+      'I love the clean interface and how fast it works. The ingredient suggestions really helped me find products that don’t irritate my skin. Just wish the app had more tracking options.',
+  },
+
+  {
+    id: 6,
+    rating: 5,
+    name: 'Lina H.',
+    content:
+      'As someone based in Berlin with combination skin, I’ve always struggled to find the right products. SkinMama gave me a tailored plan that actually worked—finally, something that makes sense.',
+  },
+
+  {
+    id: 7,
+    rating: 4,
+    name: 'Saugat B.',
+    content:
+      'I was skeptical at first, but after using SkinMama for a month, my acne has visibly reduced. The best part? It doesn’t push branded stuff—it just gives what’s right for you.',
   },
 ];
 
@@ -96,19 +101,10 @@ export function Testimonials() {
                   <div className="p-1 sm:p-2 md:p-4">
                     <Card className="border border-slate-200">
                       <CardContent className="p-6 flex flex-col items-center text-center space-y-2">
-                        <Avatar className="h-20 w-20 border-2 border-primary rounded-4xl">
-                          <AvatarImage
-                            src={testimonial.avatar}
-                            alt={testimonial.name}
-                            className="rounded-4xl"
-                          />
-                          <AvatarFallback className="bg-primary text-primary-foreground">
-                            {testimonial.initials}
-                          </AvatarFallback>
-                        </Avatar>
-
                         <div className="flex space-x-1">
-                          {Array.from({ length: 5 }).map((_, i) => (
+                          {Array.from({
+                            length: Number(testimonial.rating),
+                          }).map((_, i) => (
                             <StarIcon
                               key={i}
                               className="h-5 w-5 fill-yellow-400 text-yellow-400"
@@ -124,9 +120,6 @@ export function Testimonials() {
 
                         <div className="mt-2">
                           <p className="font-medium">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">
-                            {testimonial.role}
-                          </p>
                         </div>
                       </CardContent>
                     </Card>

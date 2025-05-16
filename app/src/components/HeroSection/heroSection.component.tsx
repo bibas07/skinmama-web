@@ -100,19 +100,38 @@ export default function HeroSection() {
                 AI Powered
               </span>
               <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl dark:text-white">
-                Unlock Skin Insights Instantly with
+                Unlock Skin Insights Instantly with{' '}
                 <span className="block text-primary dark:text-blue-400">
                   Just a Smartphone
                 </span>
               </h1>
               <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                Empower your customers with personalized skincare solutions
-                through our advanced, white-label AI face scan technology.
-                Trained on a database of over 50,000 real images, our system
-                delivers highly accurate, real-time skin analysis directly from
-                any smartphone. Seamlessly integrate this cutting-edge solution
-                into your brand to offer precise product recommendations,
-                enhance customer trust, and drive engagement like never before.
+                <span className="font-bold">SkinMama </span> uses{' '}
+                <span className="font-bold">advanced AI</span>, trained on over{' '}
+                <span className="font-bold"> 50,000 </span> real images, to{' '}
+                instantly <span className="font-bold">analyze your skin</span>
+                using just your{' '}
+                <span className="font-bold">smartphone camera</span>. It detects
+                concerns like{' '}
+                <span className="font-bold">
+                  acne, dark spots, dryness, pigmentation,
+                </span>{' '}
+                and<span className="font-bold"> texture </span>—providing{' '}
+                <span className="font-bold"> real-time insights</span> and{' '}
+                <span className="font-bold">
+                  personalized product recommendations{' '}
+                </span>
+                tailored to your unique skin. Powered by{' '}
+                <span className="font-bold">proprietary AI models</span>,
+                SkinMama delivers a{' '}
+                <span className="font-bold">data-backed skincare routine</span>{' '}
+                with{' '}
+                <span className="font-bold">Industry-leading precision</span>.
+                No guesswork. No generic solutions. Just{' '}
+                <span className="font-bold">
+                  skincare that truly understands you{' '}
+                </span>
+                .
               </p>
             </div>
 
@@ -162,7 +181,7 @@ export default function HeroSection() {
                 <div>
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     <span className="font-bold text-primary dark:text-blue-400">
-                      2,500+
+                      300+
                     </span>{' '}
                     user trust our platform
                   </p>

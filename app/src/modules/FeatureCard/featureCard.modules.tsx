@@ -40,12 +40,6 @@ export default function FeatureCard() {
       description:
         'Access fun and effective skincare tools, including skin quizzes, DIY tips, facial massage guides, and more. SkinMama simplifies skincare using science and smart technology - helping you feel confident and in control of your skin health, every day.',
     },
-
-    {
-      title: 'Disclaimer',
-      description:
-        'The information provided by SkinMama is for general information purposes only and is not intended to replace professional medical advice, diagnosis, or treatment. ',
-    },
   ];
   return (
     <div className="m-6">

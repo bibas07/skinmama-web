@@ -8,39 +8,40 @@ import {
 export function QuestionAnswerSection() {
   const FAQS_QUESTION = [
     {
-      question: 'What is Skin Insights?',
+      question: 'What is SkinMama?',
       answer:
-        'Skin Insights by SkinMama is a personalized skincare guide. Our tool analyzes your skin and provides custom recommendations for healthier and radiant skin.',
+        'SkinMama is an AI-powered skincare assistant that provides real-time skin analysis using your smartphone camera. It scans your face to detect concerns like acne, dryness, pigmentation, and more—instantly. Based on your unique skin profile, SkinMama offers personalized insights and product recommendations to help you make smarter, data-backed skincare choices.',
     },
     {
-      question: 'Is Skin Insights the right tool for me?',
+      question: 'Is SkinMama the right tool for me?',
       answer:
-        "Yes, it helps you find your personalized day-time and night-time skincare routine, by just uploading a selfie. This skin analysis tool will help identify your skin's unique strengths as well as areas of focus and provide a full routine.",
+        'Absolutely—SkinMama is designed for anyone who wants to understand and care for their skin better. Whether you’re struggling with acne, dryness, dark spots, or just want a routine that actually works, SkinMama analyzes your skin in real time and gives you personalized guidance tailored to your needs. No matter your skin type, gender, or routine experience—SkinMama helps take the guesswork out of skincare.',
     },
     {
-      question: 'How to use Skin Insights?',
+      question: 'How to use SkinMama?',
       answer:
-        "Skin Insights is incredibly user-friendly. Simply capture a clear photo and let our tool analyze key areas like your forehead, crow's feet, and mouth. Experience the magic of personalized skincare.",
+        'Using SkinMama is simple. Just open the app and allow camera access. Then scan your face using your smartphone camera—no filters, just natural light. Our AI will instantly analyze your skin and provide personalized insights, product recommendations, and a custom skincare routine tailored to your needs. As your skin evolves, you can track your progress over time and adjust your routine accordingly. No guesswork, no complicated steps—just smarter skincare in seconds.',
     },
     {
-      question: 'How long does it take to use Skin Insights?',
-      answer: 'Skin Insights doesn’t take more than five minutes to complete.',
+      question: 'How long does it take to use SkinMama?',
+      answer:
+        'Just a few seconds. SkinMama scans and analyzes your skin in real time using your smartphone camera—no waiting, no lengthy setup. In under a minute, you’ll receive personalized insights, product recommendations, and your custom skincare routine. It’s quick, easy, and designed to fit seamlessly into your daily life.',
     },
 
     {
-      question: 'Do you have to download an app to use Skin Insights?',
+      question: 'Do I have to download an app to use SkinMama?',
       answer:
-        'No, you do not have to download an app to use the tool since it is available on both SkinMama website and App. We recommend using the tool on your mobile device since you will need to take a selfie for better image quality.',
+        'Yes, to use SkinMama, you’ll need to download the app to your smartphone. It’s available for iPhone users on the App Store. Once installed, you can access features like AI-powered skin scanning, personalized product recommendations, custom routines, and progress tracking—all directly from your device. The app is designed to be lightweight and user-friendly, making it easy to integrate into your daily skincare routine',
     },
     {
       question: 'Can I save my results?',
       answer:
-        'If we have your consent & you provide SkinMama with your contact information, the results of the analysis (i.e., skin age, skin concerns scale), the skin report shown to you (i.e., skin analysis on key skin attributes), and all recommendations will be stored within your profile at SkinMama. Your results will also be emailed to you.',
+        'Yes, SkinMama automatically saves your skin analysis results, progress, and personalized recommendations. All data is securely encrypted and stored, so you can track changes over time and revisit your insights whenever you need—your privacy and data safety are always a priority.',
     },
     {
       question: 'Is my picture stored?',
       answer:
-        "Yes, SkinMama only briefly stores your selfie. But once the information is returned to you, your selfie is deleted from the central cloud-based hub (generally within seconds of the analysis's completion).",
+        'No, your picture is not permanently stored. SkinMama uses your image solely for real-time analysis, and then securely discards it. We do not save, share, or upload your photos without your explicit consent. Your privacy is our priority, and all data handling is encrypted and aligned with industry best practices.',
     },
   ];
   return (
