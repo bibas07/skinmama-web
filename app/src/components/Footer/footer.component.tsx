@@ -13,6 +13,15 @@ export function Footer() {
             SkinMama is a platform that provides personalized skincare routines,
             skin analysis tools, and smart skincare products.
           </p>
+
+          <p className="text-sm mt-5">
+            <Link
+              href="/pages/PrivacyPolicy"
+              className="hover:text-amber-300 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+          </p>
         </div>
 
         <div className="flex flex-col">
