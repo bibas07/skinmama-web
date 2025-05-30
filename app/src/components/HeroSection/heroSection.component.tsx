@@ -1,8 +1,8 @@
-'use client';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+"use client";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Slide {
   id: number;
@@ -17,11 +17,11 @@ export default function HeroSection() {
 
   // Define slides with proper public paths
   const slides: Slide[] = [
-    { id: 1, src: '/slider/image-1.png', alt: 'Image 1' },
-    { id: 2, src: '/slider/image-2.png', alt: 'Image 2' },
-    { id: 3, src: '/slider/image-3.png', alt: 'Image 3' },
-    { id: 4, src: '/slider/image-4.png', alt: 'Image 4' },
-    { id: 5, src: '/slider/image-5.png', alt: 'Image 5' },
+    { id: 1, src: "/slider/image-1.png", alt: "Image 1" },
+    { id: 2, src: "/slider/image-2.png", alt: "Image 2" },
+    { id: 3, src: "/slider/image-3.png", alt: "Image 3" },
+    { id: 4, src: "/slider/image-4.png", alt: "Image 4" },
+    { id: 5, src: "/slider/image-5.png", alt: "Image 5" },
   ];
 
   const nextSlide = useCallback((): void => {
@@ -83,11 +83,11 @@ export default function HeroSection() {
   };
 
   const IMAGES = [
-    '/users/user.jpg',
-    '/users/user6.jpg',
-    '/users/user5.jpg',
-    '/users/user4.jpg',
-    '/users/user8.jpg',
+    "/users/user.jpg",
+    "/users/user6.jpg",
+    "/users/user5.jpg",
+    "/users/user4.jpg",
+    "/users/user8.jpg",
   ];
 
   return (
@@ -100,38 +100,18 @@ export default function HeroSection() {
                 AI Powered
               </span>
               <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl dark:text-white">
-                Unlock Skin Insights Instantly with{' '}
+                Unlock Skin Insights Instantly with{" "}
                 <span className="block text-primary dark:text-blue-400">
                   Just a Smartphone
                 </span>
               </h1>
-              <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                <span className="font-bold">SkinMama </span> uses{' '}
-                <span className="font-bold">advanced AI</span>, trained on over{' '}
-                <span className="font-bold"> 50,000 </span> real images, to{' '}
-                instantly <span className="font-bold">analyze your skin</span>
-                using just your{' '}
-                <span className="font-bold">smartphone camera</span>. It detects
-                concerns like{' '}
-                <span className="font-bold">
-                  acne, dark spots, dryness, pigmentation,
-                </span>{' '}
-                and<span className="font-bold"> texture </span>—providing{' '}
-                <span className="font-bold"> real-time insights</span> and{' '}
-                <span className="font-bold">
-                  personalized product recommendations{' '}
-                </span>
-                tailored to your unique skin. Powered by{' '}
-                <span className="font-bold">proprietary AI models</span>,
-                SkinMama delivers a{' '}
-                <span className="font-bold">data-backed skincare routine</span>{' '}
-                with{' '}
-                <span className="font-bold">Industry-leading precision</span>.
-                No guesswork. No generic solutions. Just{' '}
-                <span className="font-bold">
-                  skincare that truly understands you{' '}
-                </span>
-                .
+              <p>
+                <span className="font-bold">SkinMama</span> uses AI trained on{" "}
+                <span className="font-bold"> 50,000+ </span> real images to
+                analyze your skin through your phone camera. Get real-time
+                insights on acne, dark spots, dryness, and more — plus
+                personalized product recommendations. No guesswork. Just smart,
+                science-backed skincare tailored to you.
               </p>
             </div>
 
@@ -141,8 +121,8 @@ export default function HeroSection() {
                 target="_blank"
               >
                 <Image
-                  src={'/google-play.png'}
-                  alt={'app-store'}
+                  src={"/google-play.png"}
+                  alt={"app-store"}
                   width={240}
                   height={240}
                 />
@@ -152,8 +132,8 @@ export default function HeroSection() {
                 target="_blank"
               >
                 <Image
-                  src={'/app-store.svg'}
-                  alt={'app-store'}
+                  src={"/app-store.svg"}
+                  alt={"app-store"}
                   width={218}
                   height={218}
                 />
@@ -182,7 +162,7 @@ export default function HeroSection() {
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
                     <span className="font-bold text-primary dark:text-blue-400">
                       300+
-                    </span>{' '}
+                    </span>{" "}
                     user trust our platform
                   </p>
                 </div>
@@ -209,10 +189,10 @@ export default function HeroSection() {
                     key={slide.id}
                     className={`absolute inset-0 transition-all duration-500 ease-in-out transform ${
                       currentSlide === index
-                        ? 'opacity-100 translate-x-0 scale-100'
+                        ? "opacity-100 translate-x-0 scale-100"
                         : index < currentSlide
-                        ? 'opacity-0 -translate-x-full scale-95'
-                        : 'opacity-0 translate-x-full scale-95'
+                        ? "opacity-0 -translate-x-full scale-95"
+                        : "opacity-0 translate-x-full scale-95"
                     }`}
                   >
                     <div className="relative w-full h-full p-4">
@@ -236,8 +216,8 @@ export default function HeroSection() {
                       onClick={() => goToSlide(index)}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
                         currentSlide === index
-                          ? 'bg-white w-6'
-                          : 'bg-white/40 w-2 hover:bg-white/60'
+                          ? "bg-white w-6"
+                          : "bg-white/40 w-2 hover:bg-white/60"
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
